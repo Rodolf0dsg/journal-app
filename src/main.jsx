@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import { JournalApp } from './JournalApp';
 
@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRouter } from './router/AppRouter';
 import { Provider } from 'react-redux';
 import { store } from './store';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

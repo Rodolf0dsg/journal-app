@@ -1,6 +1,6 @@
-import { Login } from "@mui/icons-material"
 import { signInWithGoogle, registerUserWithEmailPassword, startLogInWithEmailAndPassword, logOutFirebase } from "../../firebase/providers"
 import { login, logout, checkingCredentials } from "./authSlice"
+import { clearNotesOnLogout } from "../journal/journalSlice"
 
 
 export const chekingAuthentication = ( email, password ) => {
@@ -58,5 +58,6 @@ export const startLogOut = () => {
         await logOutFirebase();
 
         dispatch( logout({}) );
+        dispatch( clearNotesOnLogout() );
     }
 }
