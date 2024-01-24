@@ -1,10 +1,10 @@
 import { Google } from '@mui/icons-material';
-import { Grid, Typography, TextField, Button, Link, useForkRef, Alert} from '@mui/material';
+import { Grid, Typography, TextField, Button, Link, Alert} from '@mui/material';
 import {Link as RouterLink} from 'react-router-dom';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import { useDispatch, useSelector } from 'react-redux';
-import { chekingAuthentication, startGoogleSignIn, startLoginWithEmailAndPassword } from '../../store/auth';
+import { startGoogleSignIn, startLoginWithEmailAndPassword } from '../../store/auth';
 import { useMemo } from 'react';
 
 const formData = {
@@ -34,7 +34,11 @@ export const LoginPage = () => {
 
     return (
         <AuthLayout title='Login'>
-            <form action="" onSubmit={ onSubmit } className="animate__animated animate__fadeIn animate__faster">
+            <form 
+                onSubmit={ onSubmit } 
+                className="animate__animated animate__fadeIn animate__faster"
+                aria-label='submit-form'
+            >
                     <Grid container>
                         <Grid item xs={ 12 }>
                             <TextField 
@@ -55,6 +59,9 @@ export const LoginPage = () => {
                                     placeholder='Password'
                                     fullWidth
                                     name='password'
+                                    inputProps={
+                                        {'data-testid': 'password',}
+                                    }
                                     value={ password }
                                     onChange={ onInputChange }
                             />
@@ -84,6 +91,7 @@ export const LoginPage = () => {
                                     disabled = { isAuthenticating }
                                     variant='contained' 
                                     fullWidth 
+                                    aria-label='google-btn'
                                     onClick={ onGoogleSignIn }>
                                     <Google/>
                                     <Typography sx={{ ml: 1 }}>Google</Typography>

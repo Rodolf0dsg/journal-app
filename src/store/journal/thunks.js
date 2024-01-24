@@ -2,7 +2,6 @@ import { collection, deleteDoc, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../../firebase/config';
 import { addNewEmptyNote, deleteNoteById, savingNewNote, setActiveNote, setNotes, setPhotosToActiveNote, setSaving, updateNote } from './journalSlice';
 import { loadNotes } from '../../helpers/loadNotes';
-import { FileUpload, PhotoLibrary } from '@mui/icons-material';
 import { fileUpload } from '../../helpers/fileUpload';
 
 export const startNewNote = () => {

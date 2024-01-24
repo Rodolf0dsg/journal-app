@@ -77,7 +77,7 @@ export const NoteView = () => {
                 disabled={ isSaving }
                 onClick={ () => fileInputRef.current.click() }
             >
-                <UploadFileOutlined/>
+                <UploadFileOutlined/>Subir archivo
             </IconButton>
             <input 
                 type="file" 

@@ -1,9 +1,9 @@
-import { signInWithGoogle, registerUserWithEmailPassword, startLogInWithEmailAndPassword, logOutFirebase } from "../../firebase/providers"
+import { signInWithGoogle, registerUserWithEmailPassword, logInWithEmailAndPassword, logOutFirebase } from "../../firebase/providers"
 import { login, logout, checkingCredentials } from "./authSlice"
 import { clearNotesOnLogout } from "../journal/journalSlice"
 
 
-export const chekingAuthentication = ( email, password ) => {
+export const chekingAuthentication = () => {
     return async( dispatch ) => {
         dispatch( checkingCredentials() )
     }
@@ -43,13 +43,13 @@ export const startLoginWithEmailAndPassword = ({email, password}) => {
 
         dispatch( checkingCredentials() );
 
-        const { ok, displayName, photoURL, errorMessage, uid } = await startLogInWithEmailAndPassword({ email, password });
+        const result = await logInWithEmailAndPassword({ email, password });
         // console.log({ ok, uid, photoURL, errorMessage });
 
-        if ( !ok ) return dispatch( logout({ errorMessage }) );
+        if ( !result.ok ) return dispatch( logout({ errorMessage }) );
 
-        dispatch( login({displayName, email, photoURL, uid}) )
-    }
+        dispatch( login( result ) )
+    };
 
 };
 
@@ -57,7 +57,7 @@ export const startLogOut = () => {
     return async (dispatch) => {
         await logOutFirebase();
 
-        dispatch( logout({}) );
+        dispatch( logout() );
         dispatch( clearNotesOnLogout() );
     }
 }
