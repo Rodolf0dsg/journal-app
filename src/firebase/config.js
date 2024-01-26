@@ -20,6 +20,13 @@ const {
   VITE_APPID,
 } = getEnvironments(); 
 
+// const VITE_APIKEY=import.meta.env.VITE_APIKEY;
+// const VITE_AUTHDOMAIN=import.meta.env.VITE_AUTHDOMAIN;
+// const VITE_PROJECTID=import.meta.env.VITE_PROJECTID;
+// const VITE_STORAGEBUCKET=import.meta.env.VITE_STORAGEBUCKET;
+// const VITE_MESSAGINGSENDERID=import.meta.env.VITE_MESSAGINGSENDERID;
+// const VITE_APPID=import.meta.env.VITE_APPID;
+
 // console.log({VITE_APIKEY, VITE_AUTHDOMAIN ,VITE_PROJECTID ,VITE_STORAGEBUCKET, VITE_MESSAGINGSENDERID, VITE_APPID});
 
 
