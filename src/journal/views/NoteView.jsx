@@ -53,6 +53,8 @@ export const NoteView = () => {
         dispatch( startDeletingNote() );
     }
 
+    console.log( !!note.imagesUrls );
+
   return (
     <Grid 
         className="animate__animated animate__fadeIn animate__faster"
@@ -134,9 +136,12 @@ export const NoteView = () => {
             </Button>
         </Grid>
         
-        <ImageGallery
-            images={note.imagesUrls}
-        />
+        {
+            (!!note.imagesUrls) 
+                ? <ImageGallery images={note.imagesUrls} />
+                : null 
+        }
+
 
     </Grid>
   )
